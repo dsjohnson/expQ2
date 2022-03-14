@@ -1,15 +1,18 @@
-#include <iostream>
+
+// [[Rcpp::depends(RcppArmadillo)]]
 
 #include <RcppArmadillo.h>
-// [[Rcpp::depends(RcppArmadillo)]]
+#define NDEBUG 1
 #include <Rcpp.h>
-
 #include <cmath>
 #include <boost/math/special_functions/gamma.hpp>
 #include <boost/math/distributions/poisson.hpp>
 #include <chrono>
 
+// [[Rcpp::interfaces(r, cpp)]]
+
 using namespace std;
+using namespace Rcpp;
 
 inline double h(double x) {
   return 1.0-x+x*log(x);
@@ -90,15 +93,15 @@ bool commonChecks(double prec, int vn_rows, int vn_cols, int Qn_rows, int Qn_col
   bool bad=false;
 
   if ((prec>=1.0) || (prec < 1e-16)) {
-    cout << sinit << "precision of "<<prec<<"\n";
+    Rcout << sinit << "precision of "<<prec<<"\n";
     bad=true;
   }
   if (!ignore_v && (Qn_rows != vn_cols)) {
-    cout << sinit<<"v and Q dimension mismatch "<<vn_rows<<"x"<<vn_cols<<" vs "<<Qn_rows<<"x"<<Qn_cols<<"\n";
+    Rcout << sinit<<"v and Q dimension mismatch "<<vn_rows<<"x"<<vn_cols<<" vs "<<Qn_rows<<"x"<<Qn_cols<<"\n";
     bad=true;
   }
   if (Qn_rows != Qn_cols) {
-    cout << sinit<<"Q dimensions "<<Qn_rows<<"x"<<Qn_cols<<"\n";
+    Rcout << sinit<<"Q dimensions "<<Qn_rows<<"x"<<Qn_cols<<"\n";
     bad=true;
   }
 
@@ -112,23 +115,23 @@ bool sChecks(const arma::mat v, const arma::sp_mat Q, double prec, string caller
   if (Q.n_rows == Q.n_cols) {
     arma::dvec dg(Q.diag());
     if (dg.max()>0) {
-      cout << sinit <<"positive elements on Q diagonal, max= "<<dg.max()<<"\n";
+      Rcout << sinit <<"positive elements on Q diagonal, max= "<<dg.max()<<"\n";
       bad=true;
     }
     arma::sp_mat Qpd=Q-speye(arma::size(Q))*Q.min();
     if (Qpd.min()<0) {
-      cout << sinit<<"negative elements off Q diagonal, min= "<<Qpd.min()<<"\n";
+      Rcout << sinit<<"negative elements off Q diagonal, min= "<<Qpd.min()<<"\n";
       bad=true;
     }
   }
   arma::dvec zeros=arma::zeros(Q.n_cols);
   arma::dvec ones=zeros+1;
   if (arma::norm(Q*ones)>1e-10) {
-    cout << sinit<<"Q 1 != 0\n";
+    Rcout << sinit<<"Q 1 != 0\n";
     bad=true;
   }
   if (!ignore_v && (v.min()<0)) {
-      cout << sinit <<"negative elements in v, min= "<<v.min()<<"\n";
+      Rcout << sinit <<"negative elements in v, min= "<<v.min()<<"\n";
       bad=true;
   }
 
@@ -141,23 +144,23 @@ bool dChecks(const arma::mat v, const arma::dmat Q, double prec, string caller, 
   if (Q.n_rows == Q.n_cols) {
     arma::vec dg=Q.diag();
     if (dg.max()>0) {
-      cout << sinit <<"positive elements on Q diagonal, max= "<<dg.max()<<"\n";
+      Rcout << sinit <<"positive elements on Q diagonal, max= "<<dg.max()<<"\n";
       bad=true;
     }
     arma::dmat Qnd=Q-arma::diagmat(dg);
     if (Qnd.min()<0) {
-      cout << sinit<< "negative elements off Q diagonal, min= "<<Qnd.min()<<"\n";
+      Rcout << sinit<< "negative elements off Q diagonal, min= "<<Qnd.min()<<"\n";
       bad=true;
     }
   }
   arma::dvec zeros=arma::zeros(Q.n_cols);
   arma::dvec ones=zeros+1;
   if (arma::norm(Q*ones)>1e-10) {
-    cout << sinit<< "Q 1 != 0\n";
+    Rcout << sinit<< "Q 1 != 0\n";
     bad=true;
   }
   if (!ignore_v && (v.min()<0)) {
-      cout << sinit <<"negative elements in v, min= "<<v.min()<<"\n";
+      Rcout << sinit <<"negative elements in v, min= "<<v.min()<<"\n";
       bad=true;
   }
   
@@ -373,7 +376,7 @@ arma::mat SS_exp_Q(SEXP Q, double prec, bool renorm=true) {
       }
     }
     else {
-      cout << "ERROR (SS_exp_Q): Incompatible class of Q.\n";
+      Rcout << "ERROR (SS_exp_Q): Incompatible class of Q.\n";
     }
   }
   else {
@@ -587,7 +590,7 @@ arma::mat SS_v_exp_Q(const arma::mat v, SEXP Q, double prec, bool renorm=true, b
       }
     }
     else {
-      cout << "ERROR (SS_v_exp_Q): Incompatible class of Q.\n";
+      Rcout << "ERROR (SS_v_exp_Q): Incompatible class of Q.\n";
     }
   }
   else {
@@ -778,7 +781,7 @@ arma::mat Unif_v_exp_Q(const arma::mat v, SEXP Q, double prec, bool renorm=true,
       }
     }
     else {
-      cout << "ERROR (Unif_v_exp_Q): Incompatible class of Q.\n";
+      Rcout << "ERROR (Unif_v_exp_Q): Incompatible class of Q.\n";
     }
   }
   else {
@@ -858,7 +861,7 @@ arma::mat sv_exp_Q(const arma::mat v, const arma::sp_mat Q, double prec, bool re
   const int d=v.n_cols;
   double rho=-Q.min();
   if (rho>4.2e9) {
-    cout << "WARNING (sv_exp_Q): rho of "<<rho<<" set to 4.2e9\n";
+    Rcout << "WARNING (sv_exp_Q): rho of "<<rho<<" set to 4.2e9\n";
     rho=4.2e9;
   }
   
@@ -879,7 +882,7 @@ arma::mat dv_exp_Q(const arma::mat v, const arma::mat Q, double prec, bool renor
   const int d=v.n_cols;
   double rho=-Q.min();
   if (rho>4.2e9) {
-    cout << "WARNING (dv_exp_Q): rho of "<<rho<<" set to 4.2e9\n";
+    Rcout << "WARNING (dv_exp_Q): rho of "<<rho<<" set to 4.2e9\n";
     rho=4.2e9;
   }
 
@@ -942,7 +945,7 @@ arma::mat v_exp_Q(const arma::mat v, SEXP Q, double prec, bool renorm=true, bool
       }
     }
     else {
-      cout << "ERROR (v_exp_Q): Incompatible class of Q.\n";
+      Rcout << "ERROR (v_exp_Q): Incompatible class of Q.\n";
     }
     return drivel();
   }

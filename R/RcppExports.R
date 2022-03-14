@@ -202,3 +202,7 @@ vT_exp_Q <- function(v, Q, prec, renorm = TRUE, t2 = TRUE, checks = TRUE) {
     .Call(`_expQ2_vT_exp_Q`, v, Q, prec, renorm, t2, checks)
 }
 
+# Register entry points for exported C++ functions
+methods::setLoadAction(function(ns) {
+    .Call('_expQ2_RcppExport_registerCCallable', PACKAGE = 'expQ2')
+})

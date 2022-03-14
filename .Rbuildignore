@@ -1,2 +1,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^README\.Rmd$
+^README\.md$
+^src/expQ2\.so$
+^src/expQ2\.o$
