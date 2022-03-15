@@ -2,7 +2,8 @@
 // [[Rcpp::depends(RcppArmadillo)]]
 
 #include <RcppArmadillo.h>
-#define NDEBUG 1
+ //#define NDEBUG 1
+#define BOOST_DISABLE_ASSERTS
 #include <Rcpp.h>
 #include <cmath>
 #include <boost/math/special_functions/gamma.hpp>
