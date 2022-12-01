@@ -9,5 +9,5 @@ Description: v exp(Q) by uniformisation or scaling and squaring, or exp(Q) by sc
 License: GPL (>= 2)
 Imports: Rcpp (>= 1.0.3), Matrix
 LinkingTo: Rcpp, RcppArmadillo, BH
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.1
 NeedsCompilation: yes

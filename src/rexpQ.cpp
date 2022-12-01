@@ -612,6 +612,7 @@ arma::mat SS_v_exp_Q(const arma::mat v, SEXP Q, double prec, bool renorm=true, b
 // v is one or more row vectors
 
 // Sparse Q
+// [[Rcpp::export]]
 arma::mat sUnif_v_exp_Q(const arma::mat v, const arma::sp_mat Q, double prec, bool renorm=true, bool t2=true) {
   const double rho=-Q.min(), BIG=1e100;
   if (rho==0) {
@@ -672,6 +673,7 @@ arma::mat sUnif_v_exp_Q(const arma::mat v, const arma::sp_mat Q, double prec, bo
   return vsum;
 }
 // Dense Q
+// [[Rcpp::export]]
 arma::mat dUnif_v_exp_Q(const arma::mat v, const arma::mat Q, double prec, bool renorm=true, bool t2=true) {
   const double rho=-Q.min(), BIG=1e100;
   if (rho==0) {

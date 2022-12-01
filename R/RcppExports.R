@@ -75,6 +75,14 @@ SS_v_exp_Q <- function(v, Q, prec, renorm = TRUE, checks = TRUE) {
     .Call(`_expQ2_SS_v_exp_Q`, v, Q, prec, renorm, checks)
 }
 
+sUnif_v_exp_Q <- function(v, Q, prec, renorm = TRUE, t2 = TRUE) {
+    .Call(`_expQ2_sUnif_v_exp_Q`, v, Q, prec, renorm, t2)
+}
+
+dUnif_v_exp_Q <- function(v, Q, prec, renorm = TRUE, t2 = TRUE) {
+    .Call(`_expQ2_dUnif_v_exp_Q`, v, Q, prec, renorm, t2)
+}
+
 #' Product of horizontal vector and exponential of rate matrix
 #'
 #' Evaluates v exp(Q) by making all elements of Q non-negative, then using the uniformisation method.

@@ -88,6 +88,82 @@ RcppExport SEXP _expQ2_SS_v_exp_Q(SEXP vSEXP, SEXP QSEXP, SEXP precSEXP, SEXP re
     UNPROTECT(1);
     return rcpp_result_gen;
 }
+// sUnif_v_exp_Q
+arma::mat sUnif_v_exp_Q(const arma::mat v, const arma::sp_mat Q, double prec, bool renorm, bool t2);
+static SEXP _expQ2_sUnif_v_exp_Q_try(SEXP vSEXP, SEXP QSEXP, SEXP precSEXP, SEXP renormSEXP, SEXP t2SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::traits::input_parameter< const arma::mat >::type v(vSEXP);
+    Rcpp::traits::input_parameter< const arma::sp_mat >::type Q(QSEXP);
+    Rcpp::traits::input_parameter< double >::type prec(precSEXP);
+    Rcpp::traits::input_parameter< bool >::type renorm(renormSEXP);
+    Rcpp::traits::input_parameter< bool >::type t2(t2SEXP);
+    rcpp_result_gen = Rcpp::wrap(sUnif_v_exp_Q(v, Q, prec, renorm, t2));
+    return rcpp_result_gen;
+END_RCPP_RETURN_ERROR
+}
+RcppExport SEXP _expQ2_sUnif_v_exp_Q(SEXP vSEXP, SEXP QSEXP, SEXP precSEXP, SEXP renormSEXP, SEXP t2SEXP) {
+    SEXP rcpp_result_gen;
+    {
+        Rcpp::RNGScope rcpp_rngScope_gen;
+        rcpp_result_gen = PROTECT(_expQ2_sUnif_v_exp_Q_try(vSEXP, QSEXP, precSEXP, renormSEXP, t2SEXP));
+    }
+    Rboolean rcpp_isInterrupt_gen = Rf_inherits(rcpp_result_gen, "interrupted-error");
+    if (rcpp_isInterrupt_gen) {
+        UNPROTECT(1);
+        Rf_onintr();
+    }
+    bool rcpp_isLongjump_gen = Rcpp::internal::isLongjumpSentinel(rcpp_result_gen);
+    if (rcpp_isLongjump_gen) {
+        Rcpp::internal::resumeJump(rcpp_result_gen);
+    }
+    Rboolean rcpp_isError_gen = Rf_inherits(rcpp_result_gen, "try-error");
+    if (rcpp_isError_gen) {
+        SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
+        UNPROTECT(1);
+        Rf_error(CHAR(rcpp_msgSEXP_gen));
+    }
+    UNPROTECT(1);
+    return rcpp_result_gen;
+}
+// dUnif_v_exp_Q
+arma::mat dUnif_v_exp_Q(const arma::mat v, const arma::mat Q, double prec, bool renorm, bool t2);
+static SEXP _expQ2_dUnif_v_exp_Q_try(SEXP vSEXP, SEXP QSEXP, SEXP precSEXP, SEXP renormSEXP, SEXP t2SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::traits::input_parameter< const arma::mat >::type v(vSEXP);
+    Rcpp::traits::input_parameter< const arma::mat >::type Q(QSEXP);
+    Rcpp::traits::input_parameter< double >::type prec(precSEXP);
+    Rcpp::traits::input_parameter< bool >::type renorm(renormSEXP);
+    Rcpp::traits::input_parameter< bool >::type t2(t2SEXP);
+    rcpp_result_gen = Rcpp::wrap(dUnif_v_exp_Q(v, Q, prec, renorm, t2));
+    return rcpp_result_gen;
+END_RCPP_RETURN_ERROR
+}
+RcppExport SEXP _expQ2_dUnif_v_exp_Q(SEXP vSEXP, SEXP QSEXP, SEXP precSEXP, SEXP renormSEXP, SEXP t2SEXP) {
+    SEXP rcpp_result_gen;
+    {
+        Rcpp::RNGScope rcpp_rngScope_gen;
+        rcpp_result_gen = PROTECT(_expQ2_dUnif_v_exp_Q_try(vSEXP, QSEXP, precSEXP, renormSEXP, t2SEXP));
+    }
+    Rboolean rcpp_isInterrupt_gen = Rf_inherits(rcpp_result_gen, "interrupted-error");
+    if (rcpp_isInterrupt_gen) {
+        UNPROTECT(1);
+        Rf_onintr();
+    }
+    bool rcpp_isLongjump_gen = Rcpp::internal::isLongjumpSentinel(rcpp_result_gen);
+    if (rcpp_isLongjump_gen) {
+        Rcpp::internal::resumeJump(rcpp_result_gen);
+    }
+    Rboolean rcpp_isError_gen = Rf_inherits(rcpp_result_gen, "try-error");
+    if (rcpp_isError_gen) {
+        SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
+        UNPROTECT(1);
+        Rf_error(CHAR(rcpp_msgSEXP_gen));
+    }
+    UNPROTECT(1);
+    return rcpp_result_gen;
+}
 // Unif_v_exp_Q
 arma::mat Unif_v_exp_Q(const arma::mat v, SEXP Q, double prec, bool renorm, bool t2, bool checks);
 static SEXP _expQ2_Unif_v_exp_Q_try(SEXP vSEXP, SEXP QSEXP, SEXP precSEXP, SEXP renormSEXP, SEXP t2SEXP, SEXP checksSEXP) {
@@ -212,6 +288,8 @@ static int _expQ2_RcppExport_validate(const char* sig) {
     if (signatures.empty()) {
         signatures.insert("arma::mat(*SS_exp_Q)(SEXP,double,bool)");
         signatures.insert("arma::mat(*SS_v_exp_Q)(const arma::mat,SEXP,double,bool,bool)");
+        signatures.insert("arma::mat(*sUnif_v_exp_Q)(const arma::mat,const arma::sp_mat,double,bool,bool)");
+        signatures.insert("arma::mat(*dUnif_v_exp_Q)(const arma::mat,const arma::mat,double,bool,bool)");
         signatures.insert("arma::mat(*Unif_v_exp_Q)(const arma::mat,SEXP,double,bool,bool,bool)");
         signatures.insert("arma::mat(*v_exp_Q)(const arma::mat,SEXP,double,bool,bool,bool)");
         signatures.insert("arma::dvec(*vT_exp_Q)(const arma::dvec&,SEXP,double,bool,bool,bool)");
@@ -223,6 +301,8 @@ static int _expQ2_RcppExport_validate(const char* sig) {
 RcppExport SEXP _expQ2_RcppExport_registerCCallable() { 
     R_RegisterCCallable("expQ2", "_expQ2_SS_exp_Q", (DL_FUNC)_expQ2_SS_exp_Q_try);
     R_RegisterCCallable("expQ2", "_expQ2_SS_v_exp_Q", (DL_FUNC)_expQ2_SS_v_exp_Q_try);
+    R_RegisterCCallable("expQ2", "_expQ2_sUnif_v_exp_Q", (DL_FUNC)_expQ2_sUnif_v_exp_Q_try);
+    R_RegisterCCallable("expQ2", "_expQ2_dUnif_v_exp_Q", (DL_FUNC)_expQ2_dUnif_v_exp_Q_try);
     R_RegisterCCallable("expQ2", "_expQ2_Unif_v_exp_Q", (DL_FUNC)_expQ2_Unif_v_exp_Q_try);
     R_RegisterCCallable("expQ2", "_expQ2_v_exp_Q", (DL_FUNC)_expQ2_v_exp_Q_try);
     R_RegisterCCallable("expQ2", "_expQ2_vT_exp_Q", (DL_FUNC)_expQ2_vT_exp_Q_try);
@@ -233,6 +313,8 @@ RcppExport SEXP _expQ2_RcppExport_registerCCallable() {
 static const R_CallMethodDef CallEntries[] = {
     {"_expQ2_SS_exp_Q", (DL_FUNC) &_expQ2_SS_exp_Q, 3},
     {"_expQ2_SS_v_exp_Q", (DL_FUNC) &_expQ2_SS_v_exp_Q, 5},
+    {"_expQ2_sUnif_v_exp_Q", (DL_FUNC) &_expQ2_sUnif_v_exp_Q, 5},
+    {"_expQ2_dUnif_v_exp_Q", (DL_FUNC) &_expQ2_dUnif_v_exp_Q, 5},
     {"_expQ2_Unif_v_exp_Q", (DL_FUNC) &_expQ2_Unif_v_exp_Q, 6},
     {"_expQ2_v_exp_Q", (DL_FUNC) &_expQ2_v_exp_Q, 6},
     {"_expQ2_vT_exp_Q", (DL_FUNC) &_expQ2_vT_exp_Q, 6},
