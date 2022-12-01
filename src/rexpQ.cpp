@@ -223,6 +223,7 @@ void renormalise_v(arma::dmat &v, const arma::dvec &v0sums) {
 }
 
 // Sparse Q
+// [[Rcpp::export]]
 arma::mat sSS_exp_Q(const arma::sp_mat Q, double prec, bool renorm=true) {
   const int d=Q.n_cols;
   const double rho=-Q.min(), BIG=1e100;
@@ -278,6 +279,7 @@ arma::mat sSS_exp_Q(const arma::sp_mat Q, double prec, bool renorm=true) {
   return Asum;
 }
 // Dense Q
+// [[Rcpp::export]]
 arma::mat dSS_exp_Q(const arma::dmat Q, double prec, bool renorm=true) {
   const int d=Q.n_cols;
   const double rho=-Q.min(), BIG=1e100;
@@ -399,6 +401,7 @@ arma::mat SS_exp_Q(SEXP Q, double prec, bool renorm=true) {
 /////////////////////
 
 // Sparse version
+// [[Rcpp::export]]
 arma::mat sSS_v_exp_Q(const arma::mat v, const arma::sp_mat Q, double prec,
 		      bool renorm=true) {
   const int d=v.n_cols;
@@ -470,6 +473,7 @@ arma::mat sSS_v_exp_Q(const arma::mat v, const arma::sp_mat Q, double prec,
   return vtmp;
 }
 // Dense version
+// [[Rcpp::export]]
 arma::mat dSS_v_exp_Q(const arma::mat v, const arma::mat Q, double prec,
 		      bool renorm=true) {
   const int d=v.n_cols;
@@ -805,6 +809,7 @@ arma::mat Unif_v_exp_Q(const arma::mat v, SEXP Q, double prec, bool renorm=true,
 /////////////////////////////////////////////////////////////////
 // Sparse version
 
+// [[Rcpp::export]]
 bool should_use_SS_sparse(int d, double rho, double f) {
   const double log10=log(10.0);
   double log10d=log((double)d)/log10;
@@ -834,6 +839,8 @@ bool should_use_SS_sparse(int d, double rho, double f) {
   }
   return method;
 }
+
+// [[Rcpp::export]]
 bool should_use_SS_dense(int d, double rho) {
   const double log10=log(10.0);
   double log10d=log((double)d)/log10;
@@ -860,6 +867,7 @@ bool should_use_SS_dense(int d, double rho) {
   return method;
 }
 
+// [[Rcpp::export]]
 arma::mat sv_exp_Q(const arma::mat v, const arma::sp_mat Q, double prec, bool renorm=true, bool t2=true) {
   const int d=v.n_cols;
   double rho=-Q.min();
@@ -881,6 +889,7 @@ arma::mat sv_exp_Q(const arma::mat v, const arma::sp_mat Q, double prec, bool re
 }
 
 // Dense version
+// [[Rcpp::export]]
 arma::mat dv_exp_Q(const arma::mat v, const arma::mat Q, double prec, bool renorm=true, bool t2=true) {
   const int d=v.n_cols;
   double rho=-Q.min();
