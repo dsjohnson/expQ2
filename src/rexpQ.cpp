@@ -344,6 +344,7 @@ arma::mat dSS_exp_Q(const arma::dmat Q, double prec, bool renorm=true) {
 //' @param prec Required precision - missing mass in the Poisson distribution.
 //' @param renorm Force elements of each row to sum to 1? Defaults to TRUE.
 //' @return exp(Q) A dense matrix.
+//' @export
 //'
 //' @author Chris Sherlock
 //'
@@ -556,6 +557,7 @@ arma::mat dSS_v_exp_Q(const arma::mat v, const arma::mat Q, double prec,
 //' @param renorm Force elements of each row to sum to 1? Defaults to TRUE.
 //' @param checks Perform sanity checks on the arguments? Defaults to TRUE.
 //' @return v exp(Q) A dense horizontal vector.
+//' @export
 //'
 //' @examples
 //' v=runif(2); v=v/sum(v)
@@ -749,6 +751,7 @@ arma::mat dUnif_v_exp_Q(const arma::mat v, const arma::mat Q, double prec, bool 
 //' @param t2 Perform two-tailed truncation? Defaults to TRUE.
 //' @param checks Perform sanity checks on the arguments? Defaults to TRUE.
 //' @return v exp(Q) Dense horizontal vector.
+//' @export
 //'
 //' @examples
 //' v=runif(2); v=v/sum(v)
@@ -872,7 +875,7 @@ arma::mat sv_exp_Q(const arma::mat v, const arma::sp_mat Q, double prec, bool re
   const int d=v.n_cols;
   double rho=-Q.min();
   if (rho>4.2e9) {
-    Rcout << "WARNING (sv_exp_Q): rho of "<<rho<<" set to 4.2e9\n";
+    // Rcout << "WARNING (sv_exp_Q): rho of "<<rho<<" set to 4.2e9\n";
     rho=4.2e9;
   }
   
@@ -894,7 +897,7 @@ arma::mat dv_exp_Q(const arma::mat v, const arma::mat Q, double prec, bool renor
   const int d=v.n_cols;
   double rho=-Q.min();
   if (rho>4.2e9) {
-    Rcout << "WARNING (dv_exp_Q): rho of "<<rho<<" set to 4.2e9\n";
+    // Rcout << "WARNING (dv_exp_Q): rho of "<<rho<<" set to 4.2e9\n";
     rho=4.2e9;
   }
 
@@ -918,6 +921,7 @@ arma::mat dv_exp_Q(const arma::mat v, const arma::mat Q, double prec, bool renor
 //' @param t2 Perform two-tailed truncation? Defaults to TRUE.
 //' @param checks Perform sanity checks on the arguments? Defaults to TRUE.
 //' @return v exp(Q) Dense horizontal vector.
+//' @export
 //'
 //' @examples
 //' v=runif(2); v=v/sum(v)
@@ -972,6 +976,8 @@ arma::mat v_exp_Q(const arma::mat v, SEXP Q, double prec, bool renorm=true, bool
 
   return drivel();
 }
+
+
 //' Vector transpose * exponential of a rate matrix, all transposed.
 //'
 //' Evaluates [v' exp(Q)]'; automatically chooses between scaling and squaring or uniformisation.
@@ -985,6 +991,7 @@ arma::mat v_exp_Q(const arma::mat v, SEXP Q, double prec, bool renorm=true, bool
 //' @param t2 Perform two-tailed truncation? Defaults to TRUE.
 //' @param checks Perform sanity checks on the arguments? Defaults to TRUE.
 //' @return [v' exp(Q)]' Dense vertical vector.
+//' @export
 //'
 //' @examples
 //' v=runif(2); v=v/sum(v)

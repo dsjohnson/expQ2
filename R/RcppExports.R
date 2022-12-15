@@ -17,6 +17,7 @@ dSS_exp_Q <- function(Q, prec, renorm = TRUE) {
 #' @param prec Required precision - missing mass in the Poisson distribution.
 #' @param renorm Force elements of each row to sum to 1? Defaults to TRUE.
 #' @return exp(Q) A dense matrix.
+#' @export
 #'
 #' @author Chris Sherlock
 #'
@@ -61,6 +62,7 @@ dSS_v_exp_Q <- function(v, Q, prec, renorm = TRUE) {
 #' @param renorm Force elements of each row to sum to 1? Defaults to TRUE.
 #' @param checks Perform sanity checks on the arguments? Defaults to TRUE.
 #' @return v exp(Q) A dense horizontal vector.
+#' @export
 #'
 #' @examples
 #' v=runif(2); v=v/sum(v)
@@ -112,6 +114,7 @@ dUnif_v_exp_Q <- function(v, Q, prec, renorm = TRUE, t2 = TRUE) {
 #' @param t2 Perform two-tailed truncation? Defaults to TRUE.
 #' @param checks Perform sanity checks on the arguments? Defaults to TRUE.
 #' @return v exp(Q) Dense horizontal vector.
+#' @export
 #'
 #' @examples
 #' v=runif(2); v=v/sum(v)
@@ -171,6 +174,7 @@ dv_exp_Q <- function(v, Q, prec, renorm = TRUE, t2 = TRUE) {
 #' @param t2 Perform two-tailed truncation? Defaults to TRUE.
 #' @param checks Perform sanity checks on the arguments? Defaults to TRUE.
 #' @return v exp(Q) Dense horizontal vector.
+#' @export
 #'
 #' @examples
 #' v=runif(2); v=v/sum(v)
@@ -214,6 +218,7 @@ v_exp_Q <- function(v, Q, prec, renorm = TRUE, t2 = TRUE, checks = TRUE) {
 #' @param t2 Perform two-tailed truncation? Defaults to TRUE.
 #' @param checks Perform sanity checks on the arguments? Defaults to TRUE.
 #' @return [v' exp(Q)]' Dense vertical vector.
+#' @export
 #'
 #' @examples
 #' v=runif(2); v=v/sum(v)

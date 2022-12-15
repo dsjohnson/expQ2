@@ -1,8 +1,8 @@
 Package: expQ2
 Type: Package
 Title: Non-negative vector * exp of rate matrix
-Version: 1.1
-Date: 2020-02-04
+Version: 1.2
+Date: 2022-12-14
 Author: Chris Sherlock
 Maintainer: Devin Johnson <devin.johnson@noaa.gov>
 Description: v exp(Q) by uniformisation or scaling and squaring, or exp(Q) by scaling and squaring.
