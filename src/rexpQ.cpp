@@ -349,19 +349,19 @@ arma::mat dSS_exp_Q(const arma::dmat Q, double prec, bool renorm=true) {
 //' @author Chris Sherlock
 //'
 //' @examples
-//' Qd=matrix(nrow=2,ncol=2,data=c(-1,1,2,-2),byrow=TRUE); SS_exp_Q(Qd,1e-10)
+//' Qd <- matrix(nrow=2,ncol=2,data=c(-1,1,2,-2),byrow=TRUE); SS_exp_Q(Qd,1e-10)
 //'
 //' library("Matrix")
-//' d=5; f=0.3; ones=rep(1,d)
-//' Qs=abs(rsparsematrix(d,d,f))
-//' diag(Qs)=0
-//' Qsum=Qs%*%ones
-//' diag(Qs)=-Qsum
+//' d<-5; f<-0.3; ones<-rep(1,d)
+//' Qs <- abs(rsparsematrix(d,d,f))
+//' diag(Qs) <- 0
+//' Qsum <- as.vector(Qs%*%ones)
+//' diag(Qs) <- -Qsum
 //' SS_exp_Q(Qs,1e-15)
 //'
 //' \dontrun{
-//' M=matrix(nrow=2,ncol=2,data=c(1,1,2,2),byrow=TRUE); SS_exp_Q(M,1e-10)
-//' M=matrix(nrow=2,ncol=2,data=c(1,-1,-2,2),byrow=TRUE); SS_exp_Q(M,1e-10)
+//' M <- matrix(nrow=2,ncol=2,data=c(1,1,2,2),byrow=TRUE); SS_exp_Q(M,1e-10)
+//' M <- matrix(nrow=2,ncol=2,data=c(1,-1,-2,2),byrow=TRUE); SS_exp_Q(M,1e-10)
 //' SS_exp_Q(Qs,1.5)
 //' SS_exp_Q(Qs,-2.0)
 //'}
@@ -560,24 +560,24 @@ arma::mat dSS_v_exp_Q(const arma::mat v, const arma::mat Q, double prec,
 //' @export
 //'
 //' @examples
-//' v=runif(2); v=v/sum(v)
-//' Qd=matrix(nrow=2,ncol=2,data=c(-1,1,2,-2),byrow=TRUE); SS_v_exp_Q(t(v),Qd,1e-10)
+//' v<-runif(2); v<-v/sum(v)
+//' Qd <- matrix(nrow=2,ncol=2,data=c(-1,1,2,-2),byrow=TRUE); SS_v_exp_Q(t(v),Qd,1e-10)
 //'
 //' library("Matrix")
-//' d=5; f=0.3; ones=rep(1,d); v=runif(d)
-//' Qs=abs(rsparsematrix(d,d,f))
-//' diag(Qs)=0
-//' Qsum=Qs%*%ones
-//' diag(Qs)=-Qsum
+//' d<-5; f<-0.3; ones<-rep(1,d); v<-runif(d)
+//' Qs <- abs(rsparsematrix(d,d,f))
+//' diag(Qs) <- 0
+//' Qsum <- as.vector(Qs%*%ones)
+//' diag(Qs) <- -Qsum
 //' SS_v_exp_Q(t(v),Qs,1e-15)
 //'
 //' \dontrun{
-//' v=runif(2); 
-//' M=matrix(nrow=2,ncol=2,data=c(1,1,2,2),byrow=TRUE); SS_v_exp_Q(t(v),M,1e-10)
-//' M=matrix(nrow=2,ncol=2,data=c(1,-1,-2,2),byrow=TRUE); SS_v_exp_Q(t(v),M,1e-10)
-//' d=5; f=0.3; ones=rep(1,d); v=runif(d)
-//' Qs=abs(rsparsematrix(d,d,f))
-//' diag(Qs)=0; Qsum=Qs%*%ones; diag(Qs)=-Qsum
+//' v <- runif(2); 
+//' M <- matrix(nrow=2,ncol=2,data=c(1,1,2,2),byrow=TRUE); SS_v_exp_Q(t(v),M,1e-10)
+//' M <- matrix(nrow=2,ncol=2,data=c(1,-1,-2,2),byrow=TRUE); SS_v_exp_Q(t(v),M,1e-10)
+//' d<-5; f<-0.3; ones<-rep(1,d); v<-runif(d)
+//' Qs <- abs(rsparsematrix(d,d,f))
+//' diag(Qs) <- 0; Qsum <- as.vector(Qs%*%ones); diag(Qs) <- -Qsum
 //' SS_v_exp_Q(v,Qs,1e-15)
 //' SS_v_exp_Q(t(v),Qs,1.5)
 //' SS_v_exp_Q(t(v),Qs,-2.0)
@@ -754,28 +754,28 @@ arma::mat dUnif_v_exp_Q(const arma::mat v, const arma::mat Q, double prec, bool 
 //' @export
 //'
 //' @examples
-//' v=runif(2); v=v/sum(v)
-//' Qd=matrix(nrow=2,ncol=2,data=c(-1,1,2,-2),byrow=TRUE); Unif_v_exp_Q(t(v),Qd,1e-10)
+//' v <- runif(2); v <- v/sum(v)
+//' Qd <- matrix(nrow=2,ncol=2,data=c(-1,1,2,-2),byrow=TRUE); Unif_v_exp_Q(t(v),Qd,1e-10)
 //'
 //' library("Matrix")
-//' d=5; f=0.3; ones=rep(1,d); v=runif(d)
-//' Qs=abs(rsparsematrix(d,d,f))
-//' diag(Qs)=0
-//' Qsum=Qs%*%ones
-//' diag(Qs)=-Qsum
+//' d <- 5; f <- 0.3; ones <- rep(1,d); v <- runif(d)
+//' Qs <- abs(rsparsematrix(d,d,f))
+//' diag(Qs) <- 0
+//' Qsum <- as.vector(Qs%*%ones)
+//' diag(Qs) <- -Qsum
 //' Unif_v_exp_Q(t(v),Qs,1e-15)
 //'
 //' \dontrun{
-//' v=runif(2); 
-//' M=matrix(nrow=2,ncol=2,data=c(1,1,2,2),byrow=TRUE); Unif_v_exp_Q(t(v),M,1e-10)
-//' M=matrix(nrow=2,ncol=2,data=c(1,-1,-2,2),byrow=TRUE); Unif_v_exp_Q(t(v),M,1e-10)
-//' d=5; f=0.3; ones=rep(1,d); v=runif(d)
-//' Qs=abs(rsparsematrix(d,d,f))
-//' diag(Qs)=0; Qsum=Qs%*%ones; diag(Qs)=-Qsum
+//' v <- runif(2); 
+//' M <- matrix(nrow=2,ncol=2,data=c(1,1,2,2),byrow=TRUE); Unif_v_exp_Q(t(v),M,1e-10)
+//' M <- matrix(nrow=2,ncol=2,data=c(1,-1,-2,2),byrow=TRUE); Unif_v_exp_Q(t(v),M,1e-10)
+//' d <- 5; f <- 0.3; ones <- rep(1,d); v <- runif(d)
+//' Qs <- abs(rsparsematrix(d,d,f))
+//' diag(Qs) <- 0; Qsum <- as.vector(Qs%*%ones); diag(Qs) <- -Qsum
 //' Unif_v_exp_Q(v,Qs,1e-15)
 //' Unif_v_exp_Q(t(v),Qs,1.5)
 //' Unif_v_exp_Q(t(v),Qs,-2.0)
-//' v=-runif(d)
+//' v <- -runif(d)
 //' Unif_v_exp_Q(t(v),Qs,1e-15)
 //'}
 // [[Rcpp::export]]
@@ -924,28 +924,28 @@ arma::mat dv_exp_Q(const arma::mat v, const arma::mat Q, double prec, bool renor
 //' @export
 //'
 //' @examples
-//' v=runif(2); v=v/sum(v)
-//' Qd=matrix(nrow=2,ncol=2,data=c(-1,1,2,-2),byrow=TRUE); v_exp_Q(t(v),Qd,1e-10)
+//' v <- runif(2); v <- v/sum(v)
+//' Qd <- matrix(nrow=2,ncol=2,data=c(-1,1,2,-2),byrow=TRUE); v_exp_Q(t(v),Qd,1e-10)
 //'
 //' library("Matrix")
-//' d=5; f=0.3; ones=rep(1,d); v=runif(d)
-//' Qs=abs(rsparsematrix(d,d,f))
-//' diag(Qs)=0
-//' Qsum=Qs%*%ones
-//' diag(Qs)=-Qsum
+//' d <- 5; f=0.3; ones <- rep(1,d); v <- runif(d)
+//' Qs <- abs(rsparsematrix(d,d,f))
+//' diag(Qs) <- 0
+//' Qsum <- as.vector(Qs%*%ones)
+//' diag(Qs) <- -Qsum
 //' v_exp_Q(t(v),Qs,1e-15)
 //'
 //' \dontrun{
-//' v=runif(2); 
-//' M=matrix(nrow=2,ncol=2,data=c(1,1,2,2),byrow=TRUE); v_exp_Q(t(v),M,1e-10)
-//' M=matrix(nrow=2,ncol=2,data=c(1,-1,-2,2),byrow=TRUE); v_exp_Q(t(v),M,1e-10)
-//' d=5; f=0.3; ones=rep(1,d); v=runif(d)
-//' Qs=abs(rsparsematrix(d,d,f))
-//' diag(Qs)=0; Qsum=Qs%*%ones; diag(Qs)=-Qsum
+//' v <- runif(2); 
+//' M <- matrix(nrow=2,ncol=2,data=c(1,1,2,2),byrow=TRUE); v_exp_Q(t(v),M,1e-10)
+//' M <- matrix(nrow=2,ncol=2,data=c(1,-1,-2,2),byrow=TRUE); v_exp_Q(t(v),M,1e-10)
+//' d <- 5; f=0.3; ones <- rep(1,d); v <- runif(d)
+//' Qs <- abs(rsparsematrix(d,d,f))
+//' diag(Qs) <- 0; Qsum <- as.vector(Qs%*%ones); diag(Qs) <- -Qsum
 //' v_exp_Q(v,Qs,1e-15)
 //' v_exp_Q(t(v),Qs,1.5)
 //' v_exp_Q(t(v),Qs,-2.0)
-//' v=-runif(d)
+//' v <- -runif(d)
 //' v_exp_Q(t(v),Qs,1e-15)
 //'}
 // [[Rcpp::export]]
@@ -994,22 +994,22 @@ arma::mat v_exp_Q(const arma::mat v, SEXP Q, double prec, bool renorm=true, bool
 //' @export
 //'
 //' @examples
-//' v=runif(2); v=v/sum(v)
-//' Qd=matrix(nrow=2,ncol=2,data=c(-1,1,2,-2),byrow=TRUE); vT_exp_Q(v,Qd,1e-10)
+//' v <- runif(2); v <- v/sum(v)
+//' Qd <- matrix(nrow=2,ncol=2,data=c(-1,1,2,-2),byrow=TRUE); vT_exp_Q(v,Qd,1e-10)
 //'
 //' library("Matrix")
-//' d=5; f=0.3; ones=rep(1,d); v=runif(d)
-//' Qs=abs(rsparsematrix(d,d,f))
-//' diag(Qs)=0; Qsum=Qs%*%ones; diag(Qs)=-Qsum
+//' d <- 5; f <- 0.3; ones <- rep(1,d); v <- runif(d)
+//' Qs <- abs(rsparsematrix(d,d,f))
+//' diag(Qs) <- 0; Qsum <- as.vector(Qs%*%ones); diag(Qs) <- -Qsum
 //' vT_exp_Q(v,Qs,1e-15)
 //'
 //' \dontrun{
-//' v=runif(2); 
-//' M=matrix(nrow=2,ncol=2,data=c(1,1,2,2),byrow=TRUE); vT_exp_Q(v,M,1e-10)
-//' M=matrix(nrow=2,ncol=2,data=c(1,-1,-2,2),byrow=TRUE); vT_exp_Q(v,M,1e-10)
-//' d=5; f=0.3; ones=rep(1,d); v=runif(d)
+//' v <- runif(2); 
+//' M <- matrix(nrow=2,ncol=2,data=c(1,1,2,2),byrow=TRUE); vT_exp_Q(v,M,1e-10)
+//' M <- matrix(nrow=2,ncol=2,data=c(1,-1,-2,2),byrow=TRUE); vT_exp_Q(v,M,1e-10)
+//' d <- 5; f <- 0.3; ones <- rep(1,d); v <- runif(d)
 //' Qs=abs(rsparsematrix(d,d,f))
-//' diag(Qs)=0; Qsum=Qs%*%ones; diag(Qs)=-Qsum
+//' diag(Qs) <- 0; Qsum <- as.vector(Qs%*%ones); diag(Qs) <- -Qsum
 //' vT_exp_Q(t(v),Qs,1e-15)
 //' vT_exp_Q(v,Qs,1.5)
 //' vT_exp_Q(v,Qs,-2.0)

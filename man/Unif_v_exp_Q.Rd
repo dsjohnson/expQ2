@@ -26,28 +26,28 @@ v exp(Q) Dense horizontal vector.
 Evaluates v exp(Q) by making all elements of Q non-negative, then using the uniformisation method.
 }
 \examples{
-v=runif(2); v=v/sum(v)
-Qd=matrix(nrow=2,ncol=2,data=c(-1,1,2,-2),byrow=TRUE); Unif_v_exp_Q(t(v),Qd,1e-10)
+v <- runif(2); v <- v/sum(v)
+Qd <- matrix(nrow=2,ncol=2,data=c(-1,1,2,-2),byrow=TRUE); Unif_v_exp_Q(t(v),Qd,1e-10)
 
 library("Matrix")
-d=5; f=0.3; ones=rep(1,d); v=runif(d)
-Qs=abs(rsparsematrix(d,d,f))
-diag(Qs)=0
-Qsum=Qs\%*\%ones
-diag(Qs)=-Qsum
+d <- 5; f <- 0.3; ones <- rep(1,d); v <- runif(d)
+Qs <- abs(rsparsematrix(d,d,f))
+diag(Qs) <- 0
+Qsum <- as.vector(Qs\%*\%ones)
+diag(Qs) <- -Qsum
 Unif_v_exp_Q(t(v),Qs,1e-15)
 
 \dontrun{
-v=runif(2); 
-M=matrix(nrow=2,ncol=2,data=c(1,1,2,2),byrow=TRUE); Unif_v_exp_Q(t(v),M,1e-10)
-M=matrix(nrow=2,ncol=2,data=c(1,-1,-2,2),byrow=TRUE); Unif_v_exp_Q(t(v),M,1e-10)
-d=5; f=0.3; ones=rep(1,d); v=runif(d)
-Qs=abs(rsparsematrix(d,d,f))
-diag(Qs)=0; Qsum=Qs\%*\%ones; diag(Qs)=-Qsum
+v <- runif(2); 
+M <- matrix(nrow=2,ncol=2,data=c(1,1,2,2),byrow=TRUE); Unif_v_exp_Q(t(v),M,1e-10)
+M <- matrix(nrow=2,ncol=2,data=c(1,-1,-2,2),byrow=TRUE); Unif_v_exp_Q(t(v),M,1e-10)
+d <- 5; f <- 0.3; ones <- rep(1,d); v <- runif(d)
+Qs <- abs(rsparsematrix(d,d,f))
+diag(Qs) <- 0; Qsum <- as.vector(Qs\%*\%ones); diag(Qs) <- -Qsum
 Unif_v_exp_Q(v,Qs,1e-15)
 Unif_v_exp_Q(t(v),Qs,1.5)
 Unif_v_exp_Q(t(v),Qs,-2.0)
-v=-runif(d)
+v <- -runif(d)
 Unif_v_exp_Q(t(v),Qs,1e-15)
 }
 }

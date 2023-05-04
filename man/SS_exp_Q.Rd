@@ -20,19 +20,19 @@ exp(Q) A dense matrix.
 Exponentiates a whole rate matrix by making all elements non-negative, then  scaling and squaring.
 }
 \examples{
-Qd=matrix(nrow=2,ncol=2,data=c(-1,1,2,-2),byrow=TRUE); SS_exp_Q(Qd,1e-10)
+Qd <- matrix(nrow=2,ncol=2,data=c(-1,1,2,-2),byrow=TRUE); SS_exp_Q(Qd,1e-10)
 
 library("Matrix")
-d=5; f=0.3; ones=rep(1,d)
-Qs=abs(rsparsematrix(d,d,f))
-diag(Qs)=0
-Qsum=Qs\%*\%ones
-diag(Qs)=-Qsum
+d<-5; f<-0.3; ones<-rep(1,d)
+Qs <- abs(rsparsematrix(d,d,f))
+diag(Qs) <- 0
+Qsum <- as.vector(Qs\%*\%ones)
+diag(Qs) <- -Qsum
 SS_exp_Q(Qs,1e-15)
 
 \dontrun{
-M=matrix(nrow=2,ncol=2,data=c(1,1,2,2),byrow=TRUE); SS_exp_Q(M,1e-10)
-M=matrix(nrow=2,ncol=2,data=c(1,-1,-2,2),byrow=TRUE); SS_exp_Q(M,1e-10)
+M <- matrix(nrow=2,ncol=2,data=c(1,1,2,2),byrow=TRUE); SS_exp_Q(M,1e-10)
+M <- matrix(nrow=2,ncol=2,data=c(1,-1,-2,2),byrow=TRUE); SS_exp_Q(M,1e-10)
 SS_exp_Q(Qs,1.5)
 SS_exp_Q(Qs,-2.0)
 }

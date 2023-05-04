@@ -5,8 +5,8 @@
 #' \tabular{ll}{ 
 #' Package: \tab expQ2\cr 
 #' Type: \tab Package\cr 
-#' Version: \tab 1.2\cr 
-#' Date: \tab December 15, 2022\cr 
+#' Version: \tab 1.3\cr 
+#' Date: \tab May 4, 2023\cr 
 #' License: \tab CC0 \cr 
 #' LazyLoad: \tab yes\cr 
 #' }
