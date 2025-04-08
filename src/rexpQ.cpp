@@ -1,5 +1,6 @@
 
 // [[Rcpp::depends(RcppArmadillo)]]
+// [[Rcpp::depends(BH)]]
 
 #include <RcppArmadillo.h>
  //#define NDEBUG 1
@@ -7,7 +8,7 @@
 #include <Rcpp.h>
 #include <cmath>
 #include <boost/math/special_functions/gamma.hpp>
-#include <boost/math/distributions/poisson.hpp>
+// #include <boost/math/distributions/poisson.hpp>
 #include <chrono>
 
 // [[Rcpp::interfaces(r, cpp)]]

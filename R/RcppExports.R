@@ -249,5 +249,5 @@ vT_exp_Q <- function(v, Q, prec, renorm = TRUE, t2 = TRUE, checks = TRUE) {
 
 # Register entry points for exported C++ functions
 methods::setLoadAction(function(ns) {
-    .Call('_expQ2_RcppExport_registerCCallable', PACKAGE = 'expQ2')
+    .Call(`_expQ2_RcppExport_registerCCallable`)
 })

@@ -9,6 +9,6 @@ Description: Calculate `v'exp(Q)` by uniformisation or scaling and squaring, or 
 License: GPL (>= 2)
 Imports: Rcpp (>= 1.0.3), Matrix
 LinkingTo: Rcpp, RcppArmadillo, BH
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 Encoding: UTF-8
 NeedsCompilation: yes

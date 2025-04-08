@@ -11,8 +11,8 @@ v exp(Q) by uniformisation or scaling and squaring, or exp(Q) by scaling and squ
 \tabular{ll}{ 
 Package: \tab expQ2\cr 
 Type: \tab Package\cr 
-Version: \tab 1.3\cr 
-Date: \tab May 4, 2023\cr 
+Version: \tab 1.31\cr 
+Date: \tab April 8, 2025\cr 
 License: \tab CC0 \cr 
 LazyLoad: \tab yes\cr 
 }
