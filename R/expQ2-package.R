@@ -11,7 +11,7 @@
 #' LazyLoad: \tab yes\cr 
 #' }
 #' 
-#' @note This software package is based on the R package {expQ} developed by 
+#' @note This software package is based on the R package `expQ` developed by 
 #' Chris Sherlock (https://github.com/ChrisGSherlock/expQ). This alternate 
 #' version is maintained by scientists at the NOAA Fisheries Pacific Islands 
 #' Fisheries Science Center and should be considered a fundamental research 
@@ -25,7 +25,6 @@
 #'  
 #' @name expQ2-package
 #' @aliases expQ2-package expQ2
-#' @docType package
 #' @author Chris Sherlock and Devin Johnson
 #' 
 #' Maintainer: Devin S. Johnson <devin.johnson@@noaa.gov>
@@ -36,6 +35,6 @@
 #' @useDynLib expQ2, .registration=TRUE
 #' @importFrom Rcpp evalCpp
 #' @import Matrix
-NULL
+"_PACKAGE"
 
 

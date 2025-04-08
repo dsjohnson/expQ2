@@ -18,7 +18,7 @@ LazyLoad: \tab yes\cr
 }
 }
 \note{
-This software package is based on the R package {expQ} developed by 
+This software package is based on the R package `expQ` developed by 
 Chris Sherlock (https://github.com/ChrisGSherlock/expQ). This alternate 
 version is maintained by scientists at the NOAA Fisheries Pacific Islands 
 Fisheries Science Center and should be considered a fundamental research 
