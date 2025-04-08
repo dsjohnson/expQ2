@@ -1,9 +1,9 @@
 Package: expQ2
 Type: Package
 Title: Non-negative vector * exp of rate matrix
-Version: 1.3
-Date: 2023-05-04
-Author: Chris Sherlock
+Version: 1.31
+Date: 2025-04-08
+Author: Chris Sherlock and Devin Johnson
 Maintainer: Devin Johnson <devin.johnson@noaa.gov>
 Description: Calculate `v'exp(Q)` by uniformisation or scaling and squaring, or exp(Q) by scaling and squaring. This is a duplicate of the `expQ` package written by Chris Sherlock hosted at "https://github.com/ChrisGSherlock/expQ" with changes made to pass R CRAN checks. 
 License: GPL (>= 2)
